@@ -11,9 +11,19 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from pytz import all_timezones, common_timezones
-'Europe/Madrid' in all_timezones
-True
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env()
+
+# from pytz import all_timezones, common_timezones
+# 'Europe/Madrid' in all_timezones
+# True
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -138,7 +148,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'piltrafilla_eme'
-EMAIL_HOST_PASSWORD = 'patata13!'
+# EMAIL_HOST_USER = 'piltrafilla_eme'
+# EMAIL_HOST_PASSWORD = 'patata13!'
+EMAIL_HOST_USER = 'apikey'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
