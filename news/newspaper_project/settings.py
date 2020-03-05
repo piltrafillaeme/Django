@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from pytz import all_timezones, common_timezones
+'Europe/Madrid' in all_timezones
+True
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'users',
     'pages',
+    'articles',
 ]
 
 MIDDLEWARE = [
@@ -112,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
 
@@ -132,7 +136,7 @@ LOGOUT_REDIRECT_IRL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-SENDGRID_API_KEY = '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'
+SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'piltrafilla_eme'
 EMAIL_HOST_PASSWORD = 'patata13!'
