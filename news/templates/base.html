@@ -28,16 +28,16 @@
               {{ user.username }}
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
-              <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
+              <a class="dropdown-item" href="{% url 'password_change' %}">Cambiar contraseña</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a>
               </div>
             </li>
           </ul>
         {% else %}
           <form class="form-inline ml-auto">
-            <a href="{% url 'login' %}" class="btn btn-outline-secondary">Log in</a>
-            <a href="{% url 'signup' %}" class="btn btn-primary ml- ">Sign up</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-secondary">Iniciar sesión</a>
+            <a href="{% url 'signup' %}" class="btn btn-primary ml- ">Registrarse</a>
           </form>
         {% endif %}
       </div>
